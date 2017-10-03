@@ -1,6 +1,10 @@
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import sourceMaps from 'rollup-plugin-sourcemaps'
+
+import babel from 'rollup-plugin-babel';
+import babelrc from 'babelrc-rollup';
+
 const pkg = require('./package.json')
 const camelCase = require('lodash.camelcase')
 
@@ -24,6 +28,9 @@ export default {
     resolve(),
 
     // Resolve source maps to the original source
-    sourceMaps()
+    sourceMaps(),
+
+    
+    babel(babelrc()),
   ]
 }
